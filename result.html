@@ -1,0 +1,82 @@
+<html>
+<head>
+<meta charset="utf-8"></meta>
+<title>结果页面</title>
+</head>
+<body>
+<div align="center">
+<h1>图书查询结果</h1>
+</div>
+<div align="center">
+<a href="/create/">新建</a>
+<a href="/search/">查询</a>
+</div>
+<br/>
+<br/>
+</center>
+<table width="500" border="1" align="center">
+  <tr>
+    <th>图书名</th>
+    <th>ISBN</th>
+	<th>作者</th>
+    <th>出版社</th>
+    <th>出版日期</th>
+    <th>价格</th>
+  </tr>
+  <tbody  align="center">
+  {% for book in L.1 %}
+  <tr>
+    <td>{{book.Title}}</td>
+    <td>{{book.ISBN}}</td>
+	<td>{{book.AuthorID.Name}}</td>
+    <td>{{book.Publisher}}</td>
+    <td>{{book.PublishDate}}</td>
+    <td>{{book.Price}}</td>
+	<td><form action="/delete/" method="post">
+		{% csrf_token %}
+		<input type="submit" value="删除"></input>
+		<input type="text" value="{{book.ISBN}}" name="de" style="display:none"></input>
+	</form>
+	</td>
+	<td><form action="/update/" method="post">
+		{% csrf_token %}
+		<input type="submit" value="更新"></input>
+		<input type="text" value="{{book.ISBN}}" name="de" style="display:none"></input>
+	</form>
+	<!--td><a href="/update/?id={{book.ISBN}}">更新 </a></td>
+    <td><a href="/delete/?id={{book.ISBN}}">删除</a></td-->
+  </tr>
+  {% endfor %}
+  </tbody>
+</table>
+</div>
+<br/>
+<br/>
+<div  class="m" >
+<center>
+<font  size="+2" face="楷体"> 该作者的详细信息</font>
+<br/>
+<br/>
+</center>
+<table width="500" border="1" align="center">
+  <tr>
+    <th>姓名</th>
+    <th>ID</th>
+    <th>年龄</th>
+    <th>国籍</th>
+  </tr>
+  <tbody  align="center">
+  {% for author in L.0 %}
+  <tr>
+    <td>{{author.Name}}</td>
+    <td>{{author.AuthorID}}</td>
+    <td>{{author.Age}}</td>
+    <td>{{author.Country}}</td>
+  </tr>
+  {% endfor %}
+  </tbody>
+</table>
+</form>
+</div>
+</body>
+</html>

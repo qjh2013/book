@@ -1,0 +1,27 @@
+<html>
+<head>
+<meta charset="utf-8"></meta>
+<script>
+function jump(){
+	window.location.href = "/create/";
+}
+setInterval(jump,3000);
+</script>
+<title>更新页面</title>
+</head>
+<body>
+<div align="center">
+<h1>更新图书信息</h1>
+</div>
+<div align="center">
+<a href="/create/">新建</a>
+<a href="/search/">查询</a>
+</div>
+<div align="center">
+<font  size="+2" face="楷体">正在更新……3秒后跳转</font>
+<form action="/start/" method="post">
+{% csrf_token %}
+</form>
+</div>
+</body>
+</html>

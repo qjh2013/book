@@ -1,0 +1,31 @@
+<html>
+<head>
+<meta charset="utf-8"></meta>
+<title>新加页面</title>
+</head>
+<body>
+<div align="center">
+<h1>输入新加图书</h1>
+</div>
+<div align="center">
+<a href="/create/">新建</a>
+<a href="/search/">查询</a>
+</div>
+<div>
+<form action="/create/" method="post">
+{% csrf_token %}
+ISBN:<input type="text" name="ISBN"></input><br>
+Title:<input type="text" name="Title"></input><br>
+AuthorID:<input type="text" name="Author"></input><br>
+Publisher:<input type="text" name="Publisher"></input><br>
+PublishDate:<input type="text" name="PublishDate"></input><br>
+Price:<input type="text" name="Price"></input><br>
+AuthorID:<input type="text" name="AuthorID"></input><br>
+Name:<input type="text" name="Name"></input><br>
+Age:<input type="text" name="Age"></input><br>
+Country:<input type="text" name="Country"></input><br>
+<input type="submit" value="提交"></input>
+</form>
+</div>
+</body>
+</html>
